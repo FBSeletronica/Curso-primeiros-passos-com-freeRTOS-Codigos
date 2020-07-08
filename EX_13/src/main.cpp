@@ -16,7 +16,7 @@
 #define BT   12
 
 TaskHandle_t xTask1;
-TaskHandle_t xTimer1,xTimer2;
+TimerHandle_t xTimer1,xTimer2;
 
 void vTask1(void *pvParametes);
 
