@@ -19,7 +19,8 @@ TaskHandle_t xTaskTrataBTHandle;
 void vTaskTrataBT(void *pvParameters);
 
 void callBackBT(void){
-  vTaskNotifyGiveFromISR(xTaskTrataBTHandle,pdFALSE);
+  BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+  vTaskNotifyGiveFromISR(xTaskTrataBTHandle,&xHigherPriorityTaskWoken);
 
 }
 
