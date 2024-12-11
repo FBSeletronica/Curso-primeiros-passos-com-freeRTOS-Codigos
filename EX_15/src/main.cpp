@@ -20,8 +20,8 @@ void vTaskTrataBT(void *pvParameters);
 
 void callBackBT(void){
   BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-  vTaskNotifyGiveFromISR(xTaskTrataBTHandle,&xHigherPriorityTaskWoken);
-
+  vTaskNotifyGiveFromISR(xTaskTrataBTHandle, &xHigherPriorityTaskWoken);
+  portYIELD_FROM_ISR(xHigherPriorityTaskWoken); // Solicita troca de contexto, se necessário
 }
 
 void setup() {
